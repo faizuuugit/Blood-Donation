@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+          background-image: url('images/background.jpg');
+    background-size: 100% 120%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            /* background-color: transparent; */
+            opacity: 0.9;
+            background-color: #ffffff;
+            border-radius: 8px;
+             /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+             /* filter: drop-shadow(0,0,0,200); */
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #FF4136;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #D30000;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        th {
+            background-color: #FF851B;
+            color: #fff;
+        }
+        header{
+            width: 100%;
+            height: 75px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:10px 10%;
+            background: rgb(218, 52, 52);
+        }
+        .logo a{
+            font-size: 36px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1.5px;
+            cursor: pointer;
+        }
+        nav li{
+            display: inline-block;
+            list-style-type: none;
+            padding: 0px 20px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            box-sizing: border-box;
+        }
+        .sticky{
+            position: sticky;
+            top:0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;"><p>Blood Donation</p></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="font-size:16px;
+                    font-weight: 500;
+                    color: #fff;
+                    text-decoration: none;
+                    cursor: pointer;">Home</a></li>
+            <li><a href="login_vd.html" style="font-size:16px;
+                font-weight: 500;
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;">View Donors</a></li>
+            <li><a href="login.html" style="font-size:16px;
+                font-weight: 500;
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }">Donate</a></li>
+            <li><a href="about.html" style="font-size:16px;
+                font-weight: 500;
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }">About</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <br>
+    
+     <div class="container">
+        <h1>Blood Donation Website</h1>
+        <form id="registrationForm" method="post" action="/register">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName"  required>
+            <br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" style="border-radius: 3px;" required>
+            <br><br>
+            <label for="bloodGroup">Blood Group:</label>
+            <select id="bloodGroup" name="bloodGroup" required>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+            <br><br>
+            <label for="lastDonationDate">Last Donation Date:</label>
+            <input type="date" id="lastDonationDate" name="lastDonationDate" style="border-radius: 3px;" required>
+            <br><br>
+            <center><button type="submit">Register</button></center>
+        </form>
+        <br><br>
+        <h2>Users Ready to Donate</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Blood Group</th>
+                    <th>Last Donation Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userList">
+                <tr>
+                    <td>Ganesh</td>
+                    <td>21</td>
+                    <td>B+</td>
+                    <td>2023-08-05</td>
+                    <form action="login.html" method="get">
+                        <td><button >Edit</button></td>
+                    </form>
+                    
+                </tr>
+                <tr>
+                    <td>Shashank</td>
+                    <td>20</td>
+                    <td>A+</td>
+                    <td>2023-08-15</td>
+                    <form action="login.html" method="get">
+                        <td><button >Edit</button></td>
+                    </form>
+                </tr>
+                <tr>
+                    <td>FaizuU</td>
+                    <td>19</td>
+                    <td>O-</td>
+                    <td>2023-07-20</td>
+                    <form action="login.html" method="get">
+                        <td><button >Edit</button></td>
+                    </form>
+                </tr>
+               
+                <tr>
+                    <td>Kaushik</td>
+                    <td>20</td>
+                    <td>AB-</td>
+                    <td>2023-08-10</td>
+                    <form action="login.html" method="get">
+                        <td><button >Edit</button></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function()) {
+            document.getElementById("registrationForm").addEventListener("submit", function(e) {
+                var age = document.getElementById("age").value;
+                var lastDonationDate = new Date(document.getElementById("lastDonationDate").value);
+                var today = new Date();
+                today.setHours(0, 0, 0, 0); // Reset time part to compare only dates
+
+                if (age < 17 || age > 65) {
+                    alert("Age must be between 17 and 65.");
+                    e.preventDefault(); // Prevent form submission
+                } else if (lastDonationDate > today) {
+                    alert("Last donation date cannot be in the future.");
+                    e.preventDefault(); // Prevent form submission
+                }
+            });
+           /* const registrationForm = document.getElementById("registrationForm");
+            const userList = document.getElementById("userList");
+
+            registrationForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                
+                const fullName = document.getElementById("fullName").value;
+                const age = document.getElementById("age").value;
+                const bloodGroup = document.getElementById("bloodGroup").value;
+                const lastDonationDate = document.getElementById("lastDonationDate").value;
+                var today = new Date();
+                today.setHours(0, 0, 0, 0);
+                //Create a new row 
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td>${fullName}</td>
+                    <td>${age}</td>
+                    <td>${bloodGroup}</td>
+                    <td>${lastDonationDate}</td>
+                    <td><button>Edit</button></td>
+                `;
+                if ((age < 17 || age > 65) || lastDonationDate > today){
+
+                }else{
+                    userList.appendChild(newRow);
+
+                }
+                // Append the new row to the user list
+
+                // Clear the form
+                registrationForm.reset();
+            });
+        });
+*/
+        
+    </script>
+</body>
+</html>

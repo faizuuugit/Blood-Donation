@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script>
+        function validateAndLogin(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Fetch form data
+            var email = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            // Simple email pattern for validation
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // Simple password validation: at least 6 characters
+            var passwordPattern = /^.{6,}$/;
+            
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert('Password must be at least 6 characters long.');
+                return false;
+            }
+
+            // If we get here, the details are valid
+            alert('Login Successful!');
+            window.location.href = 'view_donars.html'; // Redirect to the next page
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form method="post" onsubmit="validateAndLogin(event)">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button class="btn" type="submit">Login</button>
+        <p>Don't have an account? <a href="signup_vd.html">Sign Up</a></p>
+    </form>
+</body>
+
+</html>

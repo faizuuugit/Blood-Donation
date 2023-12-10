@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Video Page</title>
+    <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
+    
+    .video-container video {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .content {
+        position: relative;
+        z-index: 1;
+        
+    }
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .block {
+        flex: 1;
+        margin: 0 10px;
+        padding: 80px 20px;
+        text-align: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        background-color: rgba(155, 155, 155, 0.39);
+        border-radius: 10px;
+    }
+
+    .block:hover {
+        transform: translateY(-10px);
+        background-color: #e0e0e0; 
+    }
+
+    .profile-image {
+        width: 70%;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    p, a {
+        margin-top: 10px;
+    }
+    button {
+        background-color: rgba(155, 155, 155, 0.39);
+        color: #5084d3;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 30px;
+    }
+    button:hover {
+        background-color: #577ad8;
+        color: white;
+    }
+</style>    
+
+</head>
+<body>
+    <div class="video-container">
+        <video playsinline autoplay muted loop>
+            <source src="images/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+   
+
+    <div class="block">
+        <img class="profile-image" src="images/76.jpg" alt="Profile Image">
+        <h2>Siva Ganesh</h2>
+        <p>Phone: 123-456-7890</p>
+        <p>Email: 21501a0576@pvpsit.ac.in</p>
+        <!-- <a href="https://www.linkedin.com/in/johndoe/">LinkedIn</a> -->
+        <center><a href="https://www.linkedin.com" class="button"><button><b>LinkedIn</b></button></a></center>
+
+    </div>
+
+    <!-- Repeat similar blocks for other profiles -->
+    <!-- Example: -->
+    <div class="block">
+        <img class="profile-image" src="images/70.jpeg" alt="Profile Image">
+        <h2>Kadiyala Shashank</h2>
+        <p>Phone: 987-654-3210</p>
+        <p>Email: 21501a0570@pvpsit.ac.in</p>
+        <!-- <a href="https://www.linkedin.com/in/kadiyala-shashank-850915247">LinkedIn</a> -->
+        <center><a href="https://www.linkedin.com/in/kadiyala-shashank-850915247" class="button"><button><b>LinkedIn</b></button></a></center>
+        
+    </div>
+    <div class="block">
+        <img class="profile-image" src="images/b4.jpeg" alt="Profile Image">
+        <h2>Md Faizuddin</h2>
+        <p>Phone: 987-654-3210</p>
+        <p>Email: 21501a05b4@pvpsit.ac.in</p>
+        <!-- <a href="https://www.linkedin.com/in/faizuddin-mohammed-081479256">LinkedIn</a> -->
+        <center><a href="https://www.linkedin.com/in/faizuddin-mohammed-081479256" class="button"><button><b>LinkedIn</b></button></a></center>
+    </div>
+    <div class="block">
+        <img class="profile-image" src="images/89.jpeg" alt="Profile Image">
+        <h2>K Kaushik</h2>
+        <p>Phone: 987-654-3210</p>
+        <p>Email: 21501a0589@pvpsit.ac.in</p>
+        <!-- <a href="https://www.linkedin.com/in/kaushik-koganti-933634224">LinkedIn</a> -->
+        <center><a href="https://www.linkedin.com/in/kaushik-koganti-933634224" class="button"><button><b>LinkedIn</b></button></a></center>
+
+    </div>
+
+
+</body>
+</html>

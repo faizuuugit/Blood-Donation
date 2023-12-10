@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Donors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('images/background.jpg'); 
+           
+    background-size: 100% 120%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            /* background-color: transparent; */
+            opacity: 0.9;
+            background-color: #ffffff;
+            border-radius: 8px;
+             /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+             /* filter: drop-shadow(0,0,0,200); */
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: #FF4136;
+            color: #fff;
+            border: none;
+            padding: 7px 17px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #D30000;
+            text-decoration: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        th {
+            background-color: #FF851B;
+            color: #fff;
+        }
+        header{
+            width: 100%;
+            height: 75px;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:10px 10%;
+            background: rgb(218, 52, 52);
+        }
+        .logo a{
+            font-size: 36px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1.5px;
+            cursor: pointer;
+        }
+        nav li{
+            display: inline-block;
+            list-style-type: none;
+            padding: 0px 20px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            box-sizing: border-box;
+        }
+        .sticky{
+            position: sticky;
+            top:0;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;"><p>Blood Donation</p></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="font-size:16px;
+                    font-weight: 500;
+                    color: #fff;
+                    text-decoration: none;
+                    cursor: pointer;">Home</a></li>
+            <li><a href="login_vd.html" style="font-size:16px;
+                font-weight: 500;
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;">View Donors</a></li>
+            <li><a href="login.html" style="font-size:16px;
+                font-weight: 500;
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }">Donate</a></li>
+            <li><a href="about.html" style="font-size:16px;
+                font-weight: 500;
+                color: #fff;
+                text-decoration: none;
+                cursor: pointer;
+            }">About</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <br>
+    <div class="container">
+        <center><h1>Available Donars</h1></center>
+        <label for="bloodGroupFilter">Filter by Blood Group:</label>
+<select id="bloodGroupFilter">
+    <option value="all">All</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+</select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Blood Group</th>
+                <th>Last Donation Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="userList">
+            <tr>
+                <td>Ganesh</td>
+                <td>21</td>
+                <td>B+</td>
+                <td>2023-08-05</td>
+                <form action="login.html" method="get">
+                    <td><button >Edit</button></td>
+                </form>
+                
+            </tr>
+            <tr>
+                <td>Shashank</td>
+                <td>20</td>
+                <td>A+</td>
+                <td>2023-08-15</td>
+                <form action="login.html" method="get">
+                    <td><button >Edit</button></td>
+                </form>
+            </tr>
+            <tr>
+                <td>FaizuU</td>
+                <td>19</td>
+                <td>O-</td>
+                <td>2023-07-20</td>
+                <form action="login.html" method="get">
+                    <td><button >Edit</button></td>
+                </form>
+            </tr>
+           
+            <tr>
+                <td>DS Topper</td>
+                <td>20</td>
+                <td>AB-</td>
+                <td>2023-08-10</td>
+                <form action="login.html" method="get">
+                    <td><button >Edit</button></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0]; 
+    }
+
+    let allDonors = []; 
+
+    function displayDonors(filteredDonors) {
+        filteredDonors.sort((a, b) => new Date(a.LastDonationDate) - new Date(b.LastDonationDate));
+    
+        const tbody = document.getElementById('userList');
+        tbody.innerHTML = ''; 
+    
+        filteredDonors.forEach(donor => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${donor.FullName}</td>
+                <td>${donor.Age}</td>
+                <td>${donor.BloodGroup}</td>
+                <td>${formatDate(donor.LastDonationDate)}</td>
+                <td><a class="button" href="login.html?id=${donor.ID}">Edit</a></td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
+    
+
+window.onload = function() {
+    fetch('/fetchDonors')
+        .then(response => response.json())
+        .then(data => {
+            allDonors = data; 
+            displayDonors(allDonors);
+
+            document.getElementById('bloodGroupFilter').addEventListener('change', function() {
+                const selectedGroup = this.value;
+                if (selectedGroup === 'all') {
+                    displayDonors(allDonors); 
+                } else {
+                    const filteredDonors = allDonors.filter(donor => donor.BloodGroup === selectedGroup);
+                    displayDonors(filteredDonors); 
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching donors:', error);
+        });
+}
+
+</script>
+
+
+</body>
+</html>
